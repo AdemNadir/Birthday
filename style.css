@@ -1,0 +1,75 @@
+html, body {
+    margin: 0 !important;
+    padding: 0 !important;
+    overflow: hidden;
+    cursor: url('./images/cat-removebg-preview.png') auto;
+}
+
+canvas {
+    width: 100%;
+    height: auto;
+    background: #111;
+}
+
+#valentinesButton {
+    display: none;
+    position: absolute;
+    background-color: hsl(313, 100%, 59%);
+    border: 2px solid hsl(313, 100%, 59%);
+    color: #fff;
+    cursor: pointer;
+    height: 50px;
+    font-size: 16px;
+    font-family: "Comic Sans MS", cursive, sans-serif;
+    border-radius: 10px;
+    top: calc(50% + 150px); /* Adjust based on canvas height and text position */
+    left: 50%;
+    transform: translateX(-50%);
+    transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+  }
+
+  #valentinesButton:hover {
+    background-color: rgb(255, 46, 210);
+    color: #eee;
+    background-color: rgba(45, 45, 255,);
+}
+
+#playOverlay {
+  position: fixed;
+  inset: 0;
+  background: radial-gradient(circle, #1b001b, #000);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  transition: opacity 0.8s ease;
+}
+
+#playOverlay.fade-out {
+  opacity: 0;
+  pointer-events: none;
+}
+
+#playBtn {
+  font-size: 28px;
+  padding: 18px 50px;
+  border-radius: 50px;
+  border: none;
+  cursor: pointer;
+  font-family: "Comic Sans MS", cursive;
+  background: linear-gradient(135deg, #ff2ed2, #ff8de7);
+  color: white;
+  box-shadow: 0 0 30px rgba(255, 46, 210, 0.7);
+  animation: pulse 1.8s infinite;
+  transition: transform 0.3s ease;
+}
+
+#playBtn:hover {
+  transform: scale(1.08);
+}
+
+@keyframes pulse {
+  0% { box-shadow: 0 0 20px rgba(255, 46, 210, 0.6); }
+  50% { box-shadow: 0 0 45px rgba(255, 46, 210, 0.9); }
+  100% { box-shadow: 0 0 20px rgba(255, 46, 210, 0.6); }
+}
