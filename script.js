@@ -1,3 +1,4 @@
+// ===================== CANVAS SETUP =====================
 var canvas = document.getElementById("starfield");
 canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
@@ -7,6 +8,7 @@ var stars = 500;
 var colorrange = [0, 60, 240];
 var starArray = [];
 
+// ===================== UTIL =====================
 function getRandom(min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
 }
@@ -68,7 +70,7 @@ function drawTextWithLineBreaks(lines, x, y, fontSize, lineHeight) {
     });
 }
 
-// 🔥 homogeneous fade helper
+// Smooth fade helper
 function smoothOpacity(frame, start, duration) {
     const fade = duration * 0.25;
     if (frame < start || frame > start + duration) return 0;
@@ -77,6 +79,7 @@ function smoothOpacity(frame, start, duration) {
     return 1;
 }
 
+// ===================== TEXT DRAW =====================
 function drawText() {
     const fontSize = Math.min(30, window.innerWidth / 24);
     const lineHeight = 8;
@@ -89,39 +92,32 @@ function drawText() {
 
     const texts = [
         { text: "everyday I cannot believe how lucky I am", y: 0, start: 0, duration: 300 },
-
         {
             text: window.innerWidth < 600
                 ? ["amongst trillions and trillions of stars,", "over billions of years"]
                 : "amongst trillions and trillions of stars, over billions of years",
             y: 0, start: 350, duration: 350
         },
-
         { text: "to be alive", y: 0, start: 750, duration: 250 },
         { text: "and to make douaa", y: 50, start: 850, duration: 250 },
         { text: "for Allah to spend this life with you", y: 90, start: 950, duration: 300 },
-
         { text: "is so incredibly, unfathomably unlikely", y: 0, start: 1300, duration: 400 },
         { text: "That I'd ever meet someone like you", y: 50, start: 1750, duration: 350 },
-
         {
             text: window.innerWidth < 600
                 ? ["and yet here I am to get the impossible", "chance to get to know you"]
                 : "and yet here I am to get the impossible chance to get to know you",
             y: 0, start: 2150, duration: 400
         },
-
         { text: "I wish the best for you Zayneb", y: 0, start: 2600, duration: 500 },
         { text: "I really appreciate being you in my life", y: 40, start: 2800, duration: 500 },
-
         {
             text: window.innerWidth < 600
                 ? ["and I can't wait to spend all the time in", "the world to share that with you!"]
                 : "and I can't wait to spend all the time in the world to share that with you!",
             y: 80, start: 3000, duration: 600
         },
-
-        { text: "Happy Birthday Day <3", y: 130, start: 3300, duration: 800 }
+        { text: "Happy Birthday <3", y: 130, start: 3300, duration: 800 }
     ];
 
     texts.forEach(item => {
@@ -152,20 +148,34 @@ function drawText() {
     context.shadowBlur = 0;
 }
 
+// ===================== ALBUM CONTROL =====================
+const albumTrack = document.querySelector(".album-track");
+
+function controlAlbum() {
+    // Reveal album during emotional part
+    if (frameNumber > 2600) {
+        albumTrack.classList.add("show");
+    }
+}
+
 // ===================== DRAW LOOP =====================
 function draw() {
     context.clearRect(0, 0, canvas.width, canvas.height);
+
     drawStars();
     updateStars();
     drawText();
+    controlAlbum();
 
     frameNumber++;
     requestAnimationFrame(draw);
 }
 
+// ===================== RESPONSIVE =====================
 window.addEventListener("resize", () => {
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
 });
 
+// Start animation
 requestAnimationFrame(draw);
