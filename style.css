@@ -1,37 +1,146 @@
-html, body {
-    margin: 0 !important;
-    padding: 0 !important;
-    overflow: hidden;
-    cursor: url('./images/cat-removebg-preview.png') auto;
+html,
+body {
+  margin: 0 !important;
+  padding: 0 !important;
+  overflow: hidden;
+  cursor: url('./images/cat-removebg-preview.png') auto;
 }
 
 canvas {
-    width: 100%;
-    height: auto;
-    background: #111;
+  width: 100%;
+  height: auto;
+  background: #111;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 0;
 }
 
-#valentinesButton {
-    display: none;
-    position: absolute;
-    background-color: hsl(313, 100%, 59%);
-    border: 2px solid hsl(313, 100%, 59%);
-    color: #fff;
-    cursor: pointer;
-    height: 50px;
-    font-size: 16px;
-    font-family: "Comic Sans MS", cursive, sans-serif;
-    border-radius: 10px;
-    top: calc(50% + 150px); /* Adjust based on canvas height and text position */
-    left: 50%;
-    transform: translateX(-50%);
-    transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+/* ===== Album Container ===== */
+#album {
+  position: fixed;
+  bottom: 300px;
+  width: 93%;
+  display: flex;
+  justify-content: center;
+  z-index: 2;
+  pointer-events: none;
+}
+
+/* ===== Album Track ===== */
+.album-track {
+  display: flex;
+  gap: 30px;
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 1.2s ease;
+}
+
+/* ===== When Visible ===== */
+.album-track.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ===== Album Photos ===== */
+.album-photo {
+  width: 160px;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 18px;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6);
+  transition: transform 0.6s ease;
+}
+
+/* Slight rotation like real album */
+.album-photo:nth-child(1) {
+  transform: rotate(-6deg);
+}
+
+.album-photo:nth-child(2) {
+  transform: rotate(4deg);
+}
+
+.album-photo:nth-child(3) {
+  transform: rotate(-3deg);
+}
+
+.album-photo:nth-child(4) {
+  transform: rotate(5deg);
+}
+
+.album-photo:nth-child(5) {
+  transform: rotate(-4deg);
+}
+
+/* Hover effect */
+.album-photo:hover {
+  transform: scale(1.1) rotate(0deg);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .album-photo {
+    width: 80px;
+    height: 140px;
   }
 
-  #valentinesButton:hover {
-    background-color: rgb(255, 46, 210);
-    color: #eee;
-    background-color: rgba(45, 45, 255,);
+  .album-photo:nth-child(1) {
+    position: relative;
+    left: 220px;
+    transform: translateY(-250px);
+  }
+
+  .album-photo:nth-child(2) {
+    position: relative;
+    left: 23px;
+    transform: translateY(-370px);
+    
+  }
+
+  .album-photo:nth-child(3) {
+    position: relative;
+    left:40px ;
+    transform: translateY(-400px);
+  }
+
+  .album-photo:nth-child(4) {
+    position: relative;
+    left: 23px;
+    transform: translateY(-300px);
+    
+  }
+
+  .album-photo:nth-child(5) {
+    position: relative;
+    transform: translateY(-340px);
+    
+  }
+}
+
+
+#valentinesButton {
+  display: none;
+  position: absolute;
+  background-color: hsl(313, 100%, 59%);
+  border: 2px solid hsl(313, 100%, 59%);
+  color: #fff;
+  cursor: pointer;
+  height: 50px;
+  font-size: 16px;
+  font-family: "Comic Sans MS", cursive, sans-serif;
+  border-radius: 10px;
+  top: calc(50% + 150px);
+  /* Adjust based on canvas height and text position */
+  left: 50%;
+  transform: translateX(-50%);
+  transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+}
+
+#valentinesButton:hover {
+  background-color: rgb(255, 46, 210);
+  color: #eee;
+  background-color: rgba(45, 45, 255, );
 }
 
 #playOverlay {
@@ -69,7 +178,15 @@ canvas {
 }
 
 @keyframes pulse {
-  0% { box-shadow: 0 0 20px rgba(255, 46, 210, 0.6); }
-  50% { box-shadow: 0 0 45px rgba(255, 46, 210, 0.9); }
-  100% { box-shadow: 0 0 20px rgba(255, 46, 210, 0.6); }
+  0% {
+    box-shadow: 0 0 20px rgba(255, 46, 210, 0.6);
+  }
+
+  50% {
+    box-shadow: 0 0 45px rgba(255, 46, 210, 0.9);
+  }
+
+  100% {
+    box-shadow: 0 0 20px rgba(255, 46, 210, 0.6);
+  }
 }
