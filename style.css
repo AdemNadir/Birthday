@@ -88,13 +88,13 @@ canvas {
   .album-photo:nth-child(1) {
     position: relative;
     left: 220px;
-    transform: translateY(-50px);
+    transform: translateY(-90px);
   }
 
   .album-photo:nth-child(2) {
     position: relative;
     left: 23px;
-    transform: translateY(-100px);
+    transform: translateY(-140px);
     
   }
 
@@ -107,7 +107,7 @@ canvas {
   .album-photo:nth-child(4) {
     position: relative;
     left: 23px;
-    transform: translateY(-30px);
+    transform: translateY(-110px);
     
   }
 
