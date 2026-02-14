@@ -88,32 +88,32 @@ canvas {
   .album-photo:nth-child(1) {
     position: relative;
     left: 220px;
-    transform: translateY(-250px);
+    transform: translateY(-50px);
   }
 
   .album-photo:nth-child(2) {
     position: relative;
     left: 23px;
-    transform: translateY(-370px);
+    transform: translateY(-100px);
     
   }
 
   .album-photo:nth-child(3) {
     position: relative;
-    left:40px ;
-    transform: translateY(-400px);
+    left:70px ;
+    transform: translateY(-160px);
   }
 
   .album-photo:nth-child(4) {
     position: relative;
     left: 23px;
-    transform: translateY(-300px);
+    transform: translateY(-30px);
     
   }
 
   .album-photo:nth-child(5) {
     position: relative;
-    transform: translateY(-340px);
+    transform: translateY(-90px);
     
   }
 }
