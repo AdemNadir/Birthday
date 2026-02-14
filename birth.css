@@ -251,9 +251,7 @@ body {
   transform: translateY(600px);
 }
 
-#playBtn:hover {
-  transform: scale(1);
-}
+
 
 @keyframes pulse {
   0% {
@@ -292,3 +290,4 @@ body {
     /* better balance on phone */
   }
 }
+
