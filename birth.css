@@ -248,11 +248,11 @@ body {
   box-shadow: 0 0 30px rgba(255, 46, 210, 0.7);
   animation: pulse 1.8s infinite;
   transition: transform 0.3s ease;
-  transform: translateY(400px);
+  transform: translateY(600px);
 }
 
 #playBtn:hover {
-  transform: scale(1.08);
+  transform: scale(1);
 }
 
 @keyframes pulse {
